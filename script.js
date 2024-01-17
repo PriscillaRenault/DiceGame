@@ -6,8 +6,25 @@
 5 si hold ajouter le current au global et passez au second joueur
 */
 
-dice = document.getElementsByClassName('js-dice')
+const diceElements = document.getElementsByClassName('js-dice')
 
+//random dice value
 function diceValue() {
-  return Math.floor(Math.random() * (7 - 1) + 1)
+  return Math.floor(Math.random() * 6) + 1
 }
+console.log(diceValue())
+//hide other dices
+const matchingValue = diceValue().toString()
+
+function hideOthersDices() {
+  for (let i = 0; i < diceElements.length; i++) {
+    const element = diceElements[i]
+    if (element.getAttribute('value') !== matchingValue) {
+      element.classList.add('hidden')
+    } else {
+      element.classList.remove('hidden')
+    }
+  }
+}
+
+hideOthersDices()
