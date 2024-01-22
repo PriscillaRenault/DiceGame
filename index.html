@@ -23,77 +23,79 @@
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div
-          class="col d-flex justify-content-center align-self-center"
-          id="js-newGame"
-        >
-          <i class="bi bi-plus-circle text-primary fs-5 px-2"></i> NEW GAME
-        </div>
-      </div>
-
       <div
         class="row d-flex justify-content-evenly align-items-center w-75 m-5 column-gap-5"
       >
-        <div class="col">
-          <h1 class="text-center">
-            PLAYER 1<i class="bi bi-dot text-primary fs-1"></i>
-          </h1>
-          <div id="js-globalPlayer1" class="text-center text-primary fs-1">
-            43
-          </div>
-        </div>
-
-        <ul class="col text-center fs-1">
-          <li class="js-dice" value="1">
-            <i class="bi bi-dice-1 text-primary shadow-sm"></i>
-          </li>
-          <li class="js-dice" value="2">
-            <i class="bi bi-dice-2 text-primary shadow-sm"></i>
-          </li>
-          <li class="js-dice" value="3">
-            <i class="bi bi-dice-3 text-primary shadow-sm"></i>
-          </li>
-          <li class="js-dice" value="4">
-            <i class="bi bi-dice-4 text-primary shadow-sm"></i>
-          </li>
-          <li class="js-dice" value="5">
-            <i class="bi bi-dice-5 text-primary shadow-sm"></i>
-          </li>
-          <li class="js-dice" value="6">
-            <i class="bi bi-dice-6 text-primary shadow-sm"></i>
-          </li>
-        </ul>
-
-        <div class="col">
-          <h1 class="text-center">
-            PLAYER 2 <i class="bi bi-dot text-primary fs-1"></i>
-          </h1>
-          <div id="js-globalPlayer2" class="text-center text-primary fs-1">
-            72
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="row d-flex justify-content-evenly align-items-center w-75 m-5 column-gap-5"
-      >
-        <div class="col bg-primary text-center">
-          CURRENT
-          <div id="js-currentPlayer1" class="text-light fs-3">11</div>
-        </div>
+        <div></div>
 
         <div class="col text-center fs-5">
-          <div id="js-roll">
-            <i class="bi bi-arrow-repeat text-primary"></i>ROLL DICE
+          <div id="js-newGame">
+            <i class="bi bi-plus-circle text-primary fs-5 px-2"></i> NEW GAME
           </div>
-          <div id="js-hold"><i class="bi bi-save text-primary"></i>HOLD</div>
         </div>
 
-        <div class="col bg-primary text-center">
-          CURRENT
-          <div id="js-currentPlayer2" class="text-light fs-3">0</div>
+        <div></div>
+      </div>
+    </div>
+
+    <div
+      class="row d-flex justify-content-evenly align-items-center w-75 m-5 column-gap-5"
+    >
+      <div class="col">
+        <h1 class="text-center">
+          PLAYER 1<i class="bi bi-dot text-primary fs-1" id="js-dotPlayer1"></i>
+        </h1>
+        <div id="js-globalPlayer1" class="text-center text-primary fs-1"></div>
+      </div>
+
+      <ul class="col text-center fs-1">
+        <li class="js-dice hidden" value="1">
+          <i class="bi bi-dice-1 text-primary shadow-sm"></i>
+        </li>
+        <li class="js-dice hidden" value="2">
+          <i class="bi bi-dice-2 text-primary shadow-sm"></i>
+        </li>
+        <li class="js-dice hidden" value="3">
+          <i class="bi bi-dice-3 text-primary shadow-sm"></i>
+        </li>
+        <li class="js-dice hidden" value="4">
+          <i class="bi bi-dice-4 text-primary shadow-sm"></i>
+        </li>
+        <li class="js-dice hidden" value="5">
+          <i class="bi bi-dice-5 text-primary shadow-sm"></i>
+        </li>
+        <li class="js-dice" value="6">
+          <i class="bi bi-dice-6 text-primary shadow-sm"></i>
+        </li>
+      </ul>
+
+      <div class="col">
+        <h1 class="text-center">
+          PLAYER 2
+          <i class="bi bi-dot text-primary fs-1 hidden" id="js-dotPlayer2"></i>
+        </h1>
+        <div id="js-globalPlayer2" class="text-center text-primary fs-1"></div>
+      </div>
+    </div>
+
+    <div
+      class="row d-flex justify-content-evenly align-items-center w-75 m-5 column-gap-5"
+    >
+      <div class="col bg-primary text-center">
+        CURRENT
+        <div id="js-currentPlayer1" class="text-light fs-3"></div>
+      </div>
+
+      <div class="col text-center fs-5">
+        <div id="js-roll">
+          <i class="bi bi-arrow-repeat text-primary"></i>ROLL DICE
         </div>
+        <div id="js-hold"><i class="bi bi-save text-primary"></i>HOLD</div>
+      </div>
+
+      <div class="col bg-primary text-center">
+        CURRENT
+        <div id="js-currentPlayer2" class="text-light fs-3"></div>
       </div>
     </div>
 
