@@ -44,4 +44,29 @@ function rollDice() {
 rollDice()
 
 //switch between the 2 players
-function switchPlayer() {}
+function switchPlayer() {
+  if (active === player1) {
+    active === player2
+  } else {
+    active === player1
+  }
+  switch (active) {
+    case 'player1': {
+      currentValue = document.getElementById('js-currentPlayer1')
+      globalValue = document.getElementById('js-globalPlayer1')
+      currentScore = currentValue
+      globalScore = globalValue
+      break
+    }
+    case 'player2': {
+      currentValue = document.getElementById('js-currentPlayer2')
+      globalValue = document.getElementById('js-globalPlayer2')
+      currentScore = currentValue
+      globalScore = globalValue
+      break
+    }
+    default: {
+      console.log('error with switch player')
+    }
+  }
+}
