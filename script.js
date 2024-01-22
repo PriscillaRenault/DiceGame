@@ -8,15 +8,21 @@
 
 const diceElements = document.getElementsByClassName('js-dice')
 
+let currentValue = document.getElementById('js-currentPlayer1')
+let globalValue = document.getElementById('js-globalPlayer1')
+let currentScore = currentValue
+let globalScore = globalValue
+
 //random dice value
 function diceValue() {
   return Math.floor(Math.random() * 6) + 1
 }
-console.log(diceValue())
 //hide other dices
 const matchingValue = diceValue().toString()
+console.log(matchingValue)
 
-function hideOthersDices() {
+function rollDice() {
+  //show the dice of diceValue
   for (let i = 0; i < diceElements.length; i++) {
     const element = diceElements[i]
     if (element.getAttribute('value') !== matchingValue) {
@@ -25,6 +31,17 @@ function hideOthersDices() {
       element.classList.remove('hidden')
     }
   }
+  const diceNumber = parseInt(matchingValue)
+  if (diceNumber !== 1) {
+    currentScore += diceNumber
+    currentValue.textContent = currentScore
+  } else {
+    currentScore = 0
+    currentValue.textContent = 0
+    switchPlayer()
+  }
 }
+rollDice()
 
-hideOthersDices()
+//switch between the 2 players
+function switchPlayer() {}
