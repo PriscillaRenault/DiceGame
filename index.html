@@ -43,7 +43,10 @@
     >
       <div class="col">
         <h1 class="text-center">
-          PLAYER 1<i class="bi bi-dot text-primary fs-1" id="js-dotPlayer1"></i>
+          PLAYER 1<i
+            class="bi bi-circle-fill text-primary fs-4 m-3"
+            id="js-dotPlayer1"
+          ></i>
         </h1>
         <div
           id="js-globalPlayer1"
@@ -77,7 +80,10 @@
       <div class="col">
         <h1 class="text-center">
           PLAYER 2
-          <i class="bi bi-dot text-primary fs-1 hidden" id="js-dotPlayer2"></i>
+          <i
+            class="bi bi-circle-fill text-primary fs-4 m-3 hidden"
+            id="js-dotPlayer2"
+          ></i>
         </h1>
         <div
           id="js-globalPlayer2"
@@ -108,7 +114,28 @@
         <div id="js-currentPlayer2" class="text-light fs-3 js-newGame">0</div>
       </div>
     </div>
-
+    <!-- modal Winner -->
+    <div class="modal" tabindex="-1" role="dialog" id="winnerModal">
+      <div class="modal-dialog" id="myInput" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-center text-primary">WINNER</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p class="text Center" id="textWinner"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
