@@ -32,6 +32,11 @@ function newGame() {
   newScores.forEach((element) => {
     element.textContent = 0
   })
+  round = 0
+  global = 0
+  switchPlayer()
+  round = 0
+  global = 0
 }
 
 function rollDice() {
