@@ -8,20 +8,31 @@ Onclick newGame Erase all the scores
 
 */
 
+// var button
 const diceElements = document.getElementsByClassName('js-dice')
-
-let currentElement = document.getElementById('js-currentPlayer1')
-let globalElement = document.getElementById('js-globalPlayer1')
-let dot = document.getElementById('js-dotPlayer1')
-let currentPlayerScore = 0
-let globalPlayerScore = 0
-let player = 'Player 1'
 const roll = document.getElementById('js-roll')
 const hold = document.getElementById('js-hold')
 const game = document.getElementById('js-newGame')
-const winnerModal = document.getElementById('winner')
-const myInput = document.getElementById('input')
-let textWinner = document.getElementById('textWinner')
+
+// var switch
+let roundDisplay = document.getElementById('js-currentPlayer1')
+let globalDisplay = document.getElementById('js-globalPlayer1')
+let dot = document.getElementById('js-dotPlayer1')
+let round = 0
+let global = 0
+
+// var Modal
+const winnerModal = $('#winnerModal')
+const textWinner = $('#textWinner')
+const closeWinner = $('#closeWinner')
+
+// New game function
+function newGame() {
+  newScores = document.querySelectorAll('.js-newGame')
+  newScores.forEach((element) => {
+    element.textContent = 0
+  })
+}
 
 function rollDice() {
   //random dice value
@@ -43,35 +54,13 @@ function rollDice() {
   //add to current if diceNumber!==1 rrentPlayerScore=0 and change gamer
   const diceNumber = parseInt(matchingValue)
   if (diceNumber !== 1) {
-    currentPlayerScore += diceNumber
-    currentElement.textContent = currentPlayerScore
+    round += diceNumber
+    roundDisplay.textContent = round
   } else {
-    currentPlayerScore = 0
-    currentElement.textContent = 0
+    round = 0
+    roundDisplay.textContent = 0
     switchPlayer()
   }
-}
-
-//Save in  GlobalPlayer score and show Winner or switchPlayer
-function holdScore() {
-  globalPlayerScore += currentPlayerScore
-  globalElement.textContent = globalPlayerScore
-  if (globalPlayerScore >= 20) {
-    winnerModal.addEventListener('shown.bs.modal', () => {
-      myInput.focus()
-    })
-    textWinner.textContent = `Le vainqueur est le ${player} `
-  } else {
-    switchPlayer()
-  }
-}
-
-// New game function
-function newGame() {
-  newScores = document.querySelectorAll('.js-newGame')
-  newScores.forEach((element) => {
-    element.textContent = 0
-  })
 }
 
 //switch between the 2 players
@@ -79,37 +68,31 @@ const player1 = 'player1'
 const player2 = 'player2'
 let activePlayer = player1
 function switchPlayer() {
-  currentPlayerScore = 0
+  round = 0
 
-  if (activePlayer === player1) {
-    activePlayer = player2
-  } else {
-    activePlayer = player1
-  }
+  activePlayer = activePlayer === 'player1' ? 'player2' : 'player1'
+
   switch (activePlayer) {
     case 'player1': {
       //Assignment variable to player 1
-      currentElement.textContent = 0
-      currentElement = document.getElementById('js-currentPlayer1')
-      globalElement = document.getElementById('js-globalPlayer1')
-      globalPlayerScore = parseInt(globalElement.textContent)
+      roundDisplay.textContent = 0
+      roundDisplay = document.getElementById('js-currentPlayer1')
+      globalDisplay = document.getElementById('js-globalPlayer1')
+      global = parseInt(globalDisplay.textContent)
 
       // Delete dot to player 2 and Assignment to player 1
       dot.classList.add('hidden')
       dot = document.getElementById('js-dotPlayer1')
       dot.classList.remove('hidden')
 
-      player = 'Joueur 1'
-
       break
     }
     case 'player2': {
       //Assignment variable to player 2
-      currentElement.textContent = 0
-      currentElement = document.getElementById('js-currentPlayer2')
-      globalElement = document.getElementById('js-globalPlayer2')
-      globalPlayerScore = parseInt(globalElement.textContent)
-      player = 'Player 2'
+      roundDisplay.textContent = 0
+      roundDisplay = document.getElementById('js-currentPlayer2')
+      globalDisplay = document.getElementById('js-globalPlayer2')
+      global = parseInt(globalDisplay.textContent)
 
       // Delete dot to player 1 and Assignment to player 2
       dot.classList.add('hidden')
@@ -123,6 +106,29 @@ function switchPlayer() {
     }
   }
 }
+
+//Save in  GlobalPlayer score and show  modal Winner or switchPlayer
+function holdScore() {
+  global += round
+  globalDisplay.textContent = global
+  if (global >= 100) {
+    $('#winnerModal').modal('show')
+    $('#textWinner').text('vous avez gagné')
+  } else {
+    switchPlayer()
+  }
+}
+
+// Hide modal
+$('#winnerModal').on('hidden.bs.modal', function () {
+  newGame()
+})
+
+// Close modal on click
+$('#closeWinner').on('click', function () {
+  $('#winnerModal').modal('hide')
+})
+
+game.addEventListener('click', newGame)
 roll.addEventListener('click', rollDice)
 hold.addEventListener('click', holdScore)
-game.addEventListener('click', newGame)

@@ -24,96 +24,99 @@
   <body>
     <div class="container">
       <div
-        class="row d-flex justify-content-evenly align-items-center w-75 m-5 column-gap-5"
+        class="row d-flex justify-content-evenly align-items-center m-5 column-gap-5"
       >
-        <div></div>
+        <div class="col"></div>
 
         <div class="col text-center fs-5">
-          <div id="js-newGame">
-            <i class="bi bi-plus-circle text-primary fs-5 px-2"></i> NEW GAME
+          <button class="btn btn-lg" id="js-newGame">
+            <i class="bi bi-plus-circle text-primary"></i> NEW GAME
+          </button>
+        </div>
+
+        <div class="col"></div>
+      </div>
+
+      <div
+        class="row d-flex justify-content-evenly align-items-center m-5 column-gap-5"
+      >
+        <div class="col">
+          <h1 class="text-center">
+            PLAYER 1<i
+              class="bi bi-circle-fill text-primary fs-5 m-3"
+              id="js-dotPlayer1"
+            ></i>
+          </h1>
+          <div
+            id="js-globalPlayer1"
+            class="text-center text-primary fs-1 js-newGame"
+          >
+            0
           </div>
         </div>
 
-        <div></div>
-      </div>
-    </div>
+        <ul class="col text-center fs-1">
+          <li class="js-dice hidden" value="1">
+            <i class="bi bi-dice-1 text-primary shadow-sm"></i>
+          </li>
+          <li class="js-dice hidden" value="2">
+            <i class="bi bi-dice-2 text-primary shadow-sm"></i>
+          </li>
+          <li class="js-dice hidden" value="3">
+            <i class="bi bi-dice-3 text-primary shadow-sm"></i>
+          </li>
+          <li class="js-dice hidden" value="4">
+            <i class="bi bi-dice-4 text-primary shadow-sm"></i>
+          </li>
+          <li class="js-dice hidden" value="5">
+            <i class="bi bi-dice-5 text-primary shadow-sm"></i>
+          </li>
+          <li class="js-dice" value="6">
+            <i class="bi bi-dice-6 text-primary shadow-sm"></i>
+          </li>
+        </ul>
 
-    <div
-      class="row d-flex justify-content-evenly align-items-center w-75 m-5 column-gap-5"
-    >
-      <div class="col">
-        <h1 class="text-center">
-          PLAYER 1<i
-            class="bi bi-circle-fill text-primary fs-4 m-3"
-            id="js-dotPlayer1"
-          ></i>
-        </h1>
-        <div
-          id="js-globalPlayer1"
-          class="text-center text-primary fs-1 js-newGame"
-        >
-          0
+        <div class="col">
+          <h1 class="text-center">
+            PLAYER 2
+            <i
+              class="bi bi-circle-fill text-primary fs-5 m-3 hidden"
+              id="js-dotPlayer2"
+            ></i>
+          </h1>
+          <div
+            id="js-globalPlayer2"
+            class="text-center text-primary fs-1 js-newGame"
+          >
+            0
+          </div>
         </div>
       </div>
 
-      <ul class="col text-center fs-1">
-        <li class="js-dice hidden" value="1">
-          <i class="bi bi-dice-1 text-primary shadow-sm"></i>
-        </li>
-        <li class="js-dice hidden" value="2">
-          <i class="bi bi-dice-2 text-primary shadow-sm"></i>
-        </li>
-        <li class="js-dice hidden" value="3">
-          <i class="bi bi-dice-3 text-primary shadow-sm"></i>
-        </li>
-        <li class="js-dice hidden" value="4">
-          <i class="bi bi-dice-4 text-primary shadow-sm"></i>
-        </li>
-        <li class="js-dice hidden" value="5">
-          <i class="bi bi-dice-5 text-primary shadow-sm"></i>
-        </li>
-        <li class="js-dice" value="6">
-          <i class="bi bi-dice-6 text-primary shadow-sm"></i>
-        </li>
-      </ul>
+      <div
+        class="row d-flex justify-content-evenly align-items-center m-5 column-gap-5"
+      >
+        <div class="col bg-primary text-center">
+          CURRENT
+          <div id="js-currentPlayer1" class="text-light fs-3 js-newGame">0</div>
+        </div>
 
-      <div class="col">
-        <h1 class="text-center">
-          PLAYER 2
-          <i
-            class="bi bi-circle-fill text-primary fs-4 m-3 hidden"
-            id="js-dotPlayer2"
-          ></i>
-        </h1>
-        <div
-          id="js-globalPlayer2"
-          class="text-center text-primary fs-1 js-newGame"
-        >
-          0
+        <div class="col text-center fs-5 d-flex flex-column">
+          <button class="btn btn-lg" id="js-roll">
+            <i class="bi bi-arrow-repeat text-primary"></i>ROLL DICE
+          </button>
+          <button class="btn btn-lg" id="js-hold">
+            <i class="bi bi-save text-primary"></i>HOLD
+          </button>
+        </div>
+
+        <div class="col bg-primary text-center">
+          CURRENT
+          <div id="js-currentPlayer2" class="text-light fs-3 js-newGame">0</div>
         </div>
       </div>
     </div>
 
-    <div
-      class="row d-flex justify-content-evenly align-items-center w-75 m-5 column-gap-5"
-    >
-      <div class="col bg-primary text-center">
-        CURRENT
-        <div id="js-currentPlayer1" class="text-light fs-3 js-newGame">0</div>
-      </div>
-
-      <div class="col text-center fs-5">
-        <div id="js-roll">
-          <i class="bi bi-arrow-repeat text-primary"></i>ROLL DICE
-        </div>
-        <div id="js-hold"><i class="bi bi-save text-primary"></i>HOLD</div>
-      </div>
-
-      <div class="col bg-primary text-center">
-        CURRENT
-        <div id="js-currentPlayer2" class="text-light fs-3 js-newGame">0</div>
-      </div>
-    </div>
     <!-- modal Winner -->
     <div class="modal" tabindex="-1" role="dialog" id="winnerModal">
       <div class="modal-dialog" id="myInput" role="document">
@@ -123,6 +126,7 @@
             <button
               type="button"
               class="close"
+              id="closeWinner"
               data-dismiss="modal"
               aria-label="Close"
             >
@@ -135,7 +139,8 @@
         </div>
       </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>

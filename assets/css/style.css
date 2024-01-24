@@ -1,9 +1,11 @@
 .hidden {
   display: none;
 }
-.show {
-  display: flex;
-}
+
 ul {
   list-style: none;
+}
+
+.container {
+  background: linear-gradient(90deg, lightgrey 50%, #fff 50% 10%);
 }
