@@ -6,6 +6,10 @@ ul {
   list-style: none;
 }
 
-.container {
-  background: linear-gradient(90deg, lightgrey 50%, #fff 50% 10%);
+.bgPlayer1 {
+  background: linear-gradient(90deg, lightgrey 50%, #fff 50% 100%);
+}
+
+.bgPlayer2 {
+  background: linear-gradient(90deg, white 50%, lightgrey 50% 100%);
 }
