@@ -6,5 +6,5 @@ Make a game of dice.
 1 dice
 If result <> 1 add result to round until player chose hold or result = 1
 If result = 1 => round = 0 and switch player
-button Hold save on global and switch player
+button Hold save on global and switch player or end game
 Button New Game erase all result
